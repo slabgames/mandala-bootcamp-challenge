@@ -11,6 +11,7 @@ pub struct Proposal {
     status: ProposalStatus,
 }
 
+#[derive(Clone)]
 pub enum ProposalStatus {
     Active,
     Approved,
