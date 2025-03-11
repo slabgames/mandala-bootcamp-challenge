@@ -84,6 +84,7 @@ impl StakingConfig for Runtime {
 impl GovernanceConfig for Runtime {
     // No additional types needed
 }
+```
 
 ## 👉 Contribute to OpenGuild Community
 
