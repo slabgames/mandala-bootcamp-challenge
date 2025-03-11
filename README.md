@@ -14,13 +14,13 @@ TLDR: If you are not familiar with Git & Github, follow these steps below to for
 - Step 3: `Clone` the forked repository to your local device using the below command
 
 ```sh
-git clone https://github.com/<your_github_username>/lost-tribes-challenges.git
+git clone https://github.com/<your_github_username>/frame-challenges.git
 ```
 
 Replace the `[name-of-your-account]` with your Github username. For example, if my username is `chungquantin`, I would do the below command to clone the repository to my local device.
 
 ```sh
-git clone https://github.com/openguild-labs/lost-tribes-challenges.git
+git clone https://github.com/openguild-labs/frame-challenges.git
 ```
 
 - Step 4: Edit the `README.md` file to register for official participation
@@ -35,10 +35,10 @@ Go to **Participant Registration** section and register to be the workshop parti
 
 ```
 git add .
-git commit -m "Register for OpenGuild Lost Tribes Challenges"
+git commit -m "Register for OpenGuild FRAME Challenges"
 ```
 
-- Step 6: Create a `Pull Request` to merge your changes to this repository and name your PR as `Your name | Register for OpenGuild Sub0 Challenges`
+- Step 6: Create a `Pull Request` to merge your changes to this repository and name your PR as `Your name | Register for OpenGuild FRAME Challenges`
 
 <img width="1166" alt="Screenshot 2024-04-19 at 16 23 45" src="https://github.com/openguild-labs/open-hack-rust-starter/assets/56880684/7554ca7d-da68-4a23-893a-4f2c11a78d37">
 
