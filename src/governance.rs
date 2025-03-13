@@ -26,16 +26,35 @@ pub struct GovernancePallet<T: GovernanceConfig> {
 
 impl<T: GovernanceConfig> GovernancePallet<T> {
     pub fn new() -> Self {
-        todo!()
+        // todo!()
+        // Initialize the GovernancePallet
+        Self {
+            proposals: HashMap::new(),
+            votes: HashMap::new(),
+            next_proposal_id: 0,
+        }
     }
 
     // Create a new proposal
     pub fn create_proposal(
         &mut self,
-        creator: T::AccountId,
+        _creator: T::AccountId,
         description: String,
     ) -> Result<u32, &'static str> {
-        todo!()
+        // todo!()
+        // create a new proposal and insert it into the proposals hashmap with the next_proposal_id as the key
+        let proposal_id = self.next_proposal_id;
+        let proposal = Proposal {
+            description,
+            yes_votes: 0,
+            no_votes: 0,
+            status: ProposalStatus::Active,
+        };
+
+        self.proposals.insert(proposal_id, proposal);
+        self.next_proposal_id += 1;
+
+        Ok(proposal_id)
     }
 
     // Vote on a proposal (true = yes, false = no)
@@ -45,17 +64,56 @@ impl<T: GovernanceConfig> GovernancePallet<T> {
         proposal_id: u32,
         vote_type: bool,
     ) -> Result<(), &'static str> {
-        todo!()
+        // todo!()
+                // check if the proposal exists in the proposals hashmap using the proposal_id
+        // if the voter has already voted, return an error
+        // if the voter has not voted, increment the yes_votes or no_votes count based on the vote_type
+        // insert the vote into the votes hashmap
+        if let Some(proposal) = self.proposals.get_mut(&proposal_id) {
+            if let Some(vote) = self.votes.get(&(voter.clone(), proposal_id)) {
+                if *vote == vote_type {
+                    return Err("You have already voted with the same vote type");
+                }
+            }
+
+            if vote_type {
+                proposal.yes_votes += 1;
+            } else {
+                proposal.no_votes += 1;
+            }
+
+            self.votes.insert((voter.clone(), proposal_id), vote_type);
+            Ok(())
+        } else {
+            Err("Proposal does not exist")
+        }
     }
 
     // Get proposal details
     pub fn get_proposal(&self, proposal_id: u32) -> Option<&Proposal> {
-        todo!()
+        // todo!()
+        // Return the proposal details if it exists
+        self.proposals.get(&proposal_id)
     }
 
     // Finalize a proposal (changes status based on votes)
     pub fn finalize_proposal(&mut self, proposal_id: u32) -> Result<ProposalStatus, &'static str> {
-        todo!()
+        // todo!()
+        // Check if the proposal exists
+        if !self.proposals.contains_key(&proposal_id) {
+            return Err("Proposal does not exist");
+        }
+
+        // Get the proposal
+        let proposal = self.proposals.get_mut(&proposal_id).unwrap();
+        // Update the proposal's status based on votes
+        if proposal.yes_votes > proposal.no_votes {
+            proposal.status = ProposalStatus::Approved;
+        } else {
+            proposal.status = ProposalStatus::Rejected;
+        }
+        // Return the proposal status
+        Ok(proposal.status.clone())
     }
 }
 
