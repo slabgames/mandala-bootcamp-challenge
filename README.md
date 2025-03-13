@@ -94,3 +94,8 @@ OpenGuild is a builder-driven community centered around Polkadot. OpenGuild is b
 - **Website:** [OpenGuild Website](https://openguild.wtf/)
 - **Github:** [OpenGuild Labs](https://github.com/openguild-labs)
 - **Discord**: [Openguild Discord Channel](https://discord.gg/bcjMzxqtD7)
+
+## Participant Registration
+
+| 🦄 | Name | Github username | Your current occupation |
+|  | Hermanto | [slabgames](https://github.com/slabgames) | Game Developer |
