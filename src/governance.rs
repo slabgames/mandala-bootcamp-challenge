@@ -88,6 +88,11 @@ impl<T: GovernanceConfig> GovernancePallet<T> {
         }
     }
 
+    // Get proposal description
+    pub fn get_proposal_description(&self, proposal_id: u32) -> Option<&String> {
+        self.proposals.get(&proposal_id).map(|p| &p.description)
+    }
+    
     // Get proposal details
     pub fn get_proposal(&self, proposal_id: u32) -> Option<&Proposal> {
         // todo!()
