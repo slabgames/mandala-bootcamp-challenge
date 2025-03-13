@@ -64,7 +64,7 @@ impl<T: GovernanceConfig> GovernancePallet<T> {
         vote_type: bool,
     ) -> Result<(), &'static str> {
         // todo!()
-                // check if the proposal exists in the proposals hashmap using the proposal_id
+        // check if the proposal exists in the proposals hashmap using the proposal_id
         // if the voter has already voted, return an error
         // if the voter has not voted, increment the yes_votes or no_votes count based on the vote_type
         // insert the vote into the votes hashmap
