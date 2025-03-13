@@ -1,5 +1,4 @@
 use crate::staking::StakingConfig;
-use crate::system::SystemConfig;
 use std::collections::HashMap;
 
 pub trait GovernanceConfig: StakingConfig {}
